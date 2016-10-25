@@ -1,5 +1,9 @@
 FROM ubuntu:16.04
 
+# environment settings
+ARG DEBIAN_FRONTEND="noninteractive"
+ENV TERM="xterm"
+
 # package list as variable
 ARG PACKAGE_LIST="\
 	bash \
@@ -35,3 +39,7 @@ RUN \
  apt-get update && \
  apt-get install -y \
 	$PACKAGE_LIST
+	
+# clean up
+ rm -rf \
+	/var/lib/apt/lists/*
