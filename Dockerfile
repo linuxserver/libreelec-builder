@@ -38,7 +38,7 @@ ARG PACKAGE_LIST="\
 RUN \
  apt-get update && \
  apt-get install -y \
-	$PACKAGE_LIST
+	$PACKAGE_LIST && \
 	
 # clean up
  rm -rf \
