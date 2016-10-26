@@ -15,6 +15,7 @@ ARG PACKAGE_LIST="\
 	gawk \
 	gcc \
 	git \
+	golang-go \
 	gperf \
 	gzip \
 	libc6-dev \
@@ -39,7 +40,10 @@ RUN \
  apt-get update && \
  apt-get install -y \
 	$PACKAGE_LIST && \
-	
+
+# symlink for go
+ ln -s /usr/lib/go /usr/lib/golang && \
+
 # clean up
  rm -rf \
 	/var/lib/apt/lists/*
